@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:12.15.0
+      - image: circleci/node:12.15.0-browsers
     #working_directory: ~/controlCamiones
     steps:
      #working_directory: ~/Test-CI
@@ -13,7 +13,7 @@ jobs:
       - run: npm test
   test:
     docker:
-      - image: circleci/node:12.15.0
+      - image: circleci/node:12.15.0-browsers
     #working_directory: ~/controlCamiones
     steps:
         #working_directory: ~/Test-CI

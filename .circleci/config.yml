@@ -6,23 +6,17 @@ jobs:
       - image: circleci/node:12.15.0-browsers
     working_directory: ~/controlCamiones
     steps:
-     #working_directory: ~/Test-CI
       - checkout
-      #- run: sudo npm install -g @ionic/cli
-      #- run: ionic
       - run: npm install
-      save_cache: # special step to save the dependency cache
+        save_cache: # special step to save the dependency cache
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
-      #- run: npm test --no-watch
-
   test:
     docker:
       - image: circleci/node:12.15.0-browsers
     working_directory: ~/controlCamiones
     steps:
-        #working_directory: ~/Test-CI
       - checkout
        - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}  

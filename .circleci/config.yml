@@ -10,6 +10,7 @@ jobs:
       - checkout
       - run: pwd
       - run: sudo npm install -g @ionic/cli
+      - run: ionic
       - run: npm install
       #- run: npm test --no-watch
 
@@ -22,7 +23,6 @@ jobs:
       - checkout  
       - run: pwd
       - run: ls
-      - run: ionic
       - run: npm test --no-watch
 workflows:
   version: 2

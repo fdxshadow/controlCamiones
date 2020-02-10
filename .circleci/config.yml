@@ -14,9 +14,9 @@ jobs:
           - v1-dependencies-
       - run: npm install
       - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+        paths:
+          - node_modules
+        key: v1-dependencies-{{ checksum "package.json" }}
   test:
     docker:
       - image: circleci/node:12.15.0-browsers

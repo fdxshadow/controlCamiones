@@ -10,7 +10,8 @@ jobs:
       - checkout
       - run: sudo npm install -g @ionic/cli
       - run: npm install
-      - run: npm test
+      - run: npm test --nowatch
+
   test:
     docker:
       - image: circleci/node:12.15.0-browsers
@@ -18,7 +19,7 @@ jobs:
     steps:
         #working_directory: ~/Test-CI
       - checkout  
-      - run: npm test
+      - run: npm test --nowatch
 workflows:
   version: 2
   build_and_test:

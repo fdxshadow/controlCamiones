@@ -4,7 +4,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:12.15.0
-    working_directory: ~/controlCamiones
+    #working_directory: ~/controlCamiones
     steps:
      #working_directory: ~/Test-CI
       - checkout
@@ -13,10 +13,10 @@ jobs:
   test:
     docker:
       - image: circleci/node:12.15.0
-    working_directory: ~/controlCamiones
+    #working_directory: ~/controlCamiones
     steps:
         #working_directory: ~/Test-CI
-      - run: ls  
+      - checkout  
       - run: npm test
       - run:
           name: code-coverage

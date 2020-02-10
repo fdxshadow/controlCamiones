@@ -19,6 +19,8 @@ jobs:
     steps:
         #working_directory: ~/Test-CI
       - checkout  
+      - run: pwd
+      - run: ls
       - run: npm test --no-watch
 workflows:
   version: 2

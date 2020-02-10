@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run: sudo npm install -g @ionic/cli
       - run: npm install
-      - run: ng test --no-watch
+      - run: npm test --no-watch
 
   test:
     docker:

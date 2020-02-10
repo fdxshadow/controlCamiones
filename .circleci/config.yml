@@ -19,7 +19,7 @@ jobs:
     steps:
         #working_directory: ~/Test-CI
       - checkout  
-      - run: ng test --no-watch
+      - run: npm test --no-watch
 workflows:
   version: 2
   build_and_test:

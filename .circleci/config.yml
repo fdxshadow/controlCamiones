@@ -4,14 +4,13 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:12.15.0-browsers
-    #working_directory: ~/controlCamiones
+    working_directory: ~/controlCamiones
     steps:
      #working_directory: ~/Test-CI
       - checkout
       - run: pwd
       - run: sudo npm install -g @ionic/cli
       - run: npm install
-      - run: ls node_modules
       #- run: npm test --no-watch
 
   test:
@@ -23,6 +22,7 @@ jobs:
       - checkout  
       - run: pwd
       - run: ls
+      - run: ionic
       - run: npm test --no-watch
 workflows:
   version: 2

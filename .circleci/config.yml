@@ -8,8 +8,10 @@ jobs:
     steps:
      #working_directory: ~/Test-CI
       - checkout
+      - run: pwd
       - run: sudo npm install -g @ionic/cli
       - run: npm install
+      - run: ls node_modules
       #- run: npm test --no-watch
 
   test:

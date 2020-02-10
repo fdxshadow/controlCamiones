@@ -7,8 +7,6 @@ jobs:
     working_directory: ~/controlCamiones
     steps:
       - checkout
-      - restore_cache:
-          keys: v1-dependencies-{{ checksum "package.json" }}
       - run: npm install
       - save_cache:
           paths:
@@ -21,7 +19,9 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys: v1-dependencies-{{ checksum "package.json" }}
+          keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
       - run: npm test --no-watch
 workflows:
   version: 2

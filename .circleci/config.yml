@@ -17,7 +17,7 @@ jobs:
     steps:
         #working_directory: ~/Test-CI
       - run: ls  
-      - run: sudo npm test
+      - run: npm test
       - run:
           name: code-coverage
           command: './node_modules/.bin/nyc report --reporter=text-lcov'

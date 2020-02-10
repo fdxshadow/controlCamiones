@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClassGetter } from '@angular/compiler/src/output/output_ast';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',

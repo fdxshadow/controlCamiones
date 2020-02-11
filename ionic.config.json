@@ -1,7 +1,8 @@
 {
   "name": "controlCamiones",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

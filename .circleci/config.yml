@@ -37,6 +37,16 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package-lock.json" }}
             - v1-dependencies-
+
+        #install gradle
+      - run: 
+            name: "Install gradle"
+            command: |
+              wget https://services.gradle.org/distributions/gradle-6.1.1-bin.zip -P /tmp
+              sudo unzip -d /opt/gradle /tmp/gradle-*.zip
+              echo 'export GRADLE_HOME=/opt/gradle/gradle-4.0.2' >> $BASH_ENV
+              echo 'export PATH=$PATH:/opt/gradle/gradle-4.0.2/bin' >> $BASH_ENV
+              source $BASH_ENV
       - run: node --version      
         #se ejecuta instalacion de ionic      
       - run: sudo npm install -g @ionic/cli
@@ -45,6 +55,12 @@ jobs:
         #se pasa a codigo nativo android
       - run: ionic capacitor add android
         #se genera apk
+      run:
+          name: Initial build
+          command: gradlew clean assembleRelease --no-daemon --stacktrace
+      - store_artifacts:
+          path: app/build/outputs/apk/
+          destination: apks/
 
         #se construye apk
         #subirlo a algun servidor en especial

@@ -45,7 +45,6 @@ jobs:
         #se pasa a codigo nativo android
       - run: ionic capacitor add android
         #se genera apk
-      - run: 
 
         #se construye apk
         #subirlo a algun servidor en especial

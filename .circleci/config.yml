@@ -67,13 +67,14 @@ jobs:
       - run: ionic capacitor add android
         #se genera apk
       - run: pwd
-      - run: cd android
+       - checkout:
+          path: ~/controlCamiones/android
       - run: pwd
       - run: ls
-      #- run: ./gradlew clean assembleRelease --no-daemon --stacktrace
-      #- store_artifacts:
-       #   path: app/build/outputs/apk/
-        #  destination: apks/
+      - run: ./gradlew clean assembleRelease --no-daemon --stacktrace
+      - store_artifacts:
+          path: app/build/outputs/apk/
+          destination: apks/
 
         #se construye apk
         #subirlo a algun servidor en especial

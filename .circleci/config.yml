@@ -53,6 +53,7 @@ jobs:
       - run: sudo echo 'export PATH=${GRADLE_HOME}/bin:${PATH}' >> /etc/profile.d/gradle.sh
      #cargando variables de entorno
       - run: source /etc/profile.d/gradle.sh 
+      - run: cat /etc/profile.d/gradle.sh
      #version de sofwares  
       - run: node --version      
       - run: gradle --version

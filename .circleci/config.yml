@@ -66,12 +66,7 @@ jobs:
         #se pasa a codigo nativo android
       - run: ionic capacitor add android
         #se genera apk
-      - run: pwd
-      - checkout:
-          path: ~/controlCamiones/android
-      - run: pwd
-      - run: ls
-      - run: ./gradlew clean assembleRelease --no-daemon --stacktrace
+      - run: ./android/gradlew clean assembleRelease --no-daemon --stacktrace
       - store_artifacts:
           path: app/build/outputs/apk/
           destination: apks/

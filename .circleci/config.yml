@@ -70,7 +70,7 @@ jobs:
         #se genera apk
       - run: 
           #command: ./gradlew assembleRelease --no-daemon --stacktrace
-          command: ./gradlew assembleRelease
+          command: ./gradlew assembleDebug
           working_directory: ~/controlCamiones/android
       - store_artifacts:
           path: android/app/build/outputs/apk/

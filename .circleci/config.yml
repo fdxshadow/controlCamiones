@@ -67,7 +67,7 @@ jobs:
       - run: ionic capacitor add android
         #se genera apk
       - run: pwd
-       - checkout:
+      - checkout:
           path: ~/controlCamiones/android
       - run: pwd
       - run: ls

@@ -29,8 +29,7 @@ jobs:
       - run: npm test --no-watch
   deployment_test:
     docker:
-      - image: circleci/android:api-28
-      - image: circleci/node:12.15.0
+      - image: circleci/android:api-28-node
     working_directory: ~/controlCamiones
     steps:
       - checkout
@@ -38,6 +37,7 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package-lock.json" }}
             - v1-dependencies-
+      - run: node --version      
         #se ejecuta instalacion de ionic      
       - run: sudo npm install -g @ionic/cli
         #se compila ionic 

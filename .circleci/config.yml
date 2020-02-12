@@ -55,7 +55,7 @@ jobs:
       - run: source /etc/profile.d/gradle.sh 
      #version de sofwares  
       - run: node --version      
-      - run: gradle -v
+      - run: gradle --version
         #se ejecuta instalacion de ionic      
       - run: sudo npm install -g @ionic/cli
         #se compila ionic 

@@ -49,8 +49,10 @@ jobs:
       #permisos a archivo
       - run: sudo chmod 777 /etc/profile.d/gradle.sh
       #variables de entorno
-      - run: sudo echo 'export GRADLE_HOME=/opt/gradle/gradle-6.1.1' >> /etc/profile.d/gradle.sh
-      - run: sudo echo 'export PATH=${GRADLE_HOME}/bin:${PATH}' >> /etc/profile.d/gradle.sh
+      #- run: sudo echo 'export GRADLE_HOME=/opt/gradle/gradle-6.1.1' >> /etc/profile.d/gradle.sh
+      #- run: sudo echo 'export PATH=${GRADLE_HOME}/bin:${PATH}' >> /etc/profile.d/gradle.sh
+      - run: echo 'export GRADLE_HOME=/opt/gradle/gradle-6.1.1' >> $BASH_ENV
+      - run: echo 'export PATH=${GRADLE_HOME}/bin:${PATH}' >> $BASH_ENV
      #cargando variables de entorno
       - run: source /etc/profile.d/gradle.sh 
       - run: cat /etc/profile.d/gradle.sh

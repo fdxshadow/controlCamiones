@@ -39,7 +39,7 @@ jobs:
             - v1-dependencies-
 
         #download gradle
-      - run: wget https://services.gradle.org/distributions/gradle-5.0-bin.zip -P /tmp
+      - run: wget https://services.gradle.org/distributions/gradle-6.1.1-bin.zip -P /tmp
       #install unzip
       - run: sudo apt-get install -y unzip
       #unzip gradle

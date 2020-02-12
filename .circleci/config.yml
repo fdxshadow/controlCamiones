@@ -38,16 +38,24 @@ jobs:
             - v1-dependencies-{{ checksum "package-lock.json" }}
             - v1-dependencies-
 
-        #install gradle
-      - run: 
-            name: "Install gradle"
-            command: |
-              wget https://services.gradle.org/distributions/gradle-6.1.1-bin.zip -P /tmp
-              sudo unzip -d /opt/gradle /tmp/gradle-*.zip
-              echo 'export GRADLE_HOME=/opt/gradle/gradle-4.0.2' >> $BASH_ENV
-              echo 'export PATH=$PATH:/opt/gradle/gradle-4.0.2/bin' >> $BASH_ENV
-              source $BASH_ENV
+        #download gradle
+      - run: wget https://services.gradle.org/distributions/gradle-5.0-bin.zip -P /tmp
+      #install unzip
+      - run: sudo apt-get install -y unzip
+      #unzip gradle
+      - run: sudo unzip -d /opt/gradle /tmp/gradle-6.1.1.zip
+      #creacion rchivo de configuracion
+      - run: sudo touch /etc/profile.d/gradle.sh
+      #permisos a archivo
+      - run: sudo chmod 777 /etc/profile.d/gradle.sh
+      #variables de entorno
+      - run: sudo echo 'export GRADLE_HOME=/opt/gradle/gradle-6.1.1' >> /etc/profile.d/gradle.sh
+      - run: sudo echo 'export PATH=${GRADLE_HOME}/bin:${PATH}' >> /etc/profile.d/gradle.sh
+     #cargando variables de entorno
+      - run: source /etc/profile.d/gradle.sh 
+     #version de sofwares  
       - run: node --version      
+      - run: gradle -v
         #se ejecuta instalacion de ionic      
       - run: sudo npm install -g @ionic/cli
         #se compila ionic 

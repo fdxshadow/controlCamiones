@@ -67,8 +67,8 @@ jobs:
       - run: ionic capacitor add android
         #se genera apk
       - run: 
-        command: ./gradlew assembleRelease --no-daemon --stacktrace
-        working_directory: ~/controlCamiones/android
+          command: ./gradlew assembleRelease --no-daemon --stacktrace
+          working_directory: ~/controlCamiones/android
       - store_artifacts:
           path: app/build/outputs/apk/
           destination: apks/

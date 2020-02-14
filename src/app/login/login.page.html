@@ -1,19 +1,19 @@
 
 
 <ion-content fullscreen>
-  <form (ngSubmit)="login()">
+  <form [formGroup]="userForm" (ngSubmit)="login(userForm.value)">
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
       <ion-item>
         <ion-label position="stacked"> Usuario o correo <ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="text" [(ngModel)]="user.nombre" name="nombre"></ion-input>
+        <ion-input required type="text"  formControlName="nombre" name="nombre"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Contraseña<ion-text color="danger">*</ion-text></ion-label>
-        <ion-input required type="password" [(ngModel)]="user.password" name="password"></ion-input>
+        <ion-input required type="password" formControlName="password"  name="password"></ion-input>
       </ion-item>
     </ion-list>
       <div class="ion-padding">
-        <ion-button expand="block" type="submit" class="ion-no-margin">Ingresar</ion-button>
+        <ion-button [disabled]="userForm.invalid" expand="block" type="submit" class="ion-no-margin">Ingresar</ion-button>
       </div>
   </form>
 </ion-content>

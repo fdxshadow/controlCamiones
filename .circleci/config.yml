@@ -86,9 +86,12 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - deployment_test:
+      - test:
           requires:
             - build
+      - deployment_test:
+          requires:
+            - test
           #filters:
            # branches:
             #  only: master  

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClassGetter } from '@angular/compiler/src/output/output_ast';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,16 +9,27 @@ import { FormsModule } from '@angular/forms';
 export class LoginPage implements OnInit {
 
 
-  user = {};
+  userForm:FormGroup;
 
-  constructor() { }
+  
+
+  constructor(private _builder:FormBuilder) {
+
+    this.userForm = this._builder.group({
+      'nombre': new FormControl('',[Validators.required]),
+      'password':new FormControl('',[Validators.required])
+    });
+
+   }
 
   ngOnInit() {
+    
   }
 
 
-  login(){
-    console.log(this.user);
+  login(formularioValue){
+    console.log(formularioValue);
+    //console.log(this.user)
   }
 
 }
